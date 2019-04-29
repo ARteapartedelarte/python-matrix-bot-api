@@ -20,6 +20,7 @@ class MCommandHandler(MHandler):
     def test_command(self, room, event):
         # Test the message to see if it has our command
         if event['type'] == "m.room.message":
-            if re.match(self.cmd_char + self.command, event['content']['body']):
-                return True
+            if 'body' in event['content']: # lol actually check if key exists
+                if re.match(self.cmd_char + self.command, event['content']['body']):
+                    return True
         return False
