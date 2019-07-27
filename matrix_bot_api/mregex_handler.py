@@ -19,7 +19,7 @@ class MRegexHandler(MHandler):
         # Test the message and see if it matches the regex
         if event['type'] == "m.room.message":
             if 'body' in event['content']:
-                if re.search(self.regex_str, event['content']):
+                if re.search(self.regex_str, event['content']['body']):
                     # The message matches the regex, return true
                     return True
             else:
