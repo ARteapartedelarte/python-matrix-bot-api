@@ -21,5 +21,7 @@ class MRegexHandler(MHandler):
             if 'body' in re.search(self.regex_str, event['content']):
                 # The message matches the regex, return true
                 return True
+            else:
+                print(event['content'])
 
         return False
