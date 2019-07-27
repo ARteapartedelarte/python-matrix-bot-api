@@ -18,7 +18,7 @@ class MRegexHandler(MHandler):
     def test_regex(self, room, event):
         # Test the message and see if it matches the regex
         if event['type'] == "m.room.message":
-            if re.search(self.regex_str, event['content']['body']):
+            if 'body' in re.search(self.regex_str, event['content']):
                 # The message matches the regex, return true
                 return True
 
